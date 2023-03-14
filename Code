@@ -1,0 +1,40 @@
+import random
+from IPython.display import clear_output
+from time import sleep
+RPC = {
+  1: "ROCK!",
+  2: "PAPER!",
+  3: "SCISSOR!",
+}
+rpc_ = {
+  'R': 1,
+  'P': 2,
+  'S': 3,
+}
+global score_user
+global score_pc
+score_pc = 0.0
+score_user = 0.0
+while(True):
+  a = random.randint(1, 3)
+  x = input("(R)ock / (P)aper / (S)cissor / (E)xit?\n")
+  if(x == 'E'):
+    break
+  elif rpc_[x] == 1 and a == 2:
+    score_pc += 1
+  elif rpc_[x] == 1 and a == 3:
+    score_user += 1
+  elif rpc_[x] == 2 and a == 3:
+    score_pc += 1
+  elif rpc_[x] == 2 and a == 1:
+    score_user += 1
+  elif rpc_[x] == 3 and a == 1:
+    score_pc += 1
+  elif rpc_[x] == 3 and a == 2:
+    score_user += 1
+  print(RPC[a])
+  print("\n", score_user," - ", score_pc)
+  sleep(2)
+  clear_output()
+clear_output()
+print("\n", score_user," - ", score_pc)
